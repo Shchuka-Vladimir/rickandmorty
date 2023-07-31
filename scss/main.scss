@@ -207,7 +207,7 @@ body.active-pagination {
 .footer {
   @include display-flex(flex, center, space-around);
   @include sizes(100vw, 80px);
-  @include position-bottom-right(fixed, 0, 0);
+  position: fixed;
 }
 
 .pagination {
@@ -325,6 +325,11 @@ body.active-pagination {
     gap: 20px;
     padding: 15px 20px 5px;
     box-shadow: $box-shadow-poster-vertically;
+  }
+  .button.anchor {
+    &:hover {
+      box-shadow: $box-shadow-button;
+    }
   }
 }
 @media (max-width: 500px) {
