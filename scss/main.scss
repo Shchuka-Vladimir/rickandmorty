@@ -207,7 +207,7 @@ body.active-pagination {
 .footer {
   @include display-flex(flex, center, space-around);
   @include sizes(100vw, 80px);
-  position: fixed;
+  position: relative;
 }
 
 .pagination {
