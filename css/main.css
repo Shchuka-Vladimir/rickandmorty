@@ -42,7 +42,6 @@ body.active-pagination .logo {
 .character {
   display: flex;
   align-items: center;
-  justify-content: normal;
   flex-direction: column;
   gap: 10px;
   height: 250px;
@@ -186,7 +185,10 @@ body.active-pagination .logo {
   justify-content: space-around;
   width: 100vw;
   height: 80px;
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: inherit;
 }
 
 .pagination {

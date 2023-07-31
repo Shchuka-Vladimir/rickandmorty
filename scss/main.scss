@@ -77,7 +77,7 @@ body.active-pagination {
 }
 
 .character {
-  @include display-flex(flex, center, normal);
+  @include display-flex(flex, center, null);
   flex-direction: column;
   gap: 10px;
   height: 250px;
@@ -207,7 +207,8 @@ body.active-pagination {
 .footer {
   @include display-flex(flex, center, space-around);
   @include sizes(100vw, 80px);
-  position: relative;
+  @include position-bottom-right(fixed, 0, 0);
+  background-color: inherit;
 }
 
 .pagination {
