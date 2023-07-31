@@ -293,6 +293,16 @@ body.active-pagination {
   .dialog {
     width: 60%;
   }
+  .button {
+    &:hover {
+      box-shadow: $box-shadow-button;
+    }
+  }
+  .button.arrow.disable {
+    &:hover {
+      box-shadow: $box-shadow-button-hover;
+    }
+  }
 }
 @media (max-width: 850px) {
   .dialog {
@@ -325,11 +335,6 @@ body.active-pagination {
     gap: 20px;
     padding: 15px 20px 5px;
     box-shadow: $box-shadow-poster-vertically;
-  }
-  .button.anchor {
-    &:hover {
-      box-shadow: $box-shadow-button;
-    }
   }
 }
 @media (max-width: 500px) {
