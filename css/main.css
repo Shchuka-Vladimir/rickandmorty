@@ -186,7 +186,9 @@ body.active-pagination .logo {
   justify-content: space-around;
   width: 100vw;
   height: 80px;
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
 
 .pagination {
