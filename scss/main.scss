@@ -1,0 +1,339 @@
+$black: #000000;
+$white: #ffffff;
+$height-footer: 80px;
+$padding-main: 30px;
+$background-body: #e5e5e5;
+$background-character: $white;
+$font-family: "Roboto", sans-serif;
+$box-shadow-avatar: 0 0 20px 2px #b3b3b3;
+$min-width-page: 360px;
+$background-dialog-container: rgba(0, 0, 0, 0.4);
+$box-shadow-button: 2px 2px 4px $black;
+$box-shadow-button-hover: 1px 1px 2px $black;
+$box-shadow-poster: -90px 0px 90px 40px $white;
+$color-disable: #8a8a8a;
+$background-spinner: rgba(255, 255, 255, 0.7);
+$box-shadow-poster-vertically: 0px -80px 80px 30px $white;
+
+%button {
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  box-shadow: $box-shadow-button;
+}
+@mixin display-flex($display-flex, $align-items, $justify-content) {
+  display: $display-flex;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+@mixin position-top-left($position, $top, $left) {
+  position: $position;
+  top: $top;
+  left: $left;
+}
+@mixin sizes($width, $height) {
+  width: $width;
+  height: $height;
+}
+@mixin position-bottom-right($position, $bottom, $right) {
+  position: $position;
+  bottom: $bottom;
+  right: $right;
+}
+
+body {
+  margin: 0;
+  font-family: $font-family;
+  font-size: 14px;
+  background-color: $background-body;
+}
+body.active-pagination {
+  .pagination {
+    visibility: visible;
+  }
+  .logo {
+    display: none;
+  }
+}
+
+.page {
+  min-width: $min-width-page;
+}
+
+.main {
+  position: relative;
+  padding: 30px 5px 0;
+  height: calc(100vh - $height-footer - $padding-main);
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 230px);
+  justify-content: center;
+  column-gap: 1%;
+  row-gap: 30px;
+}
+
+.character {
+  @include display-flex(flex, center, normal);
+  flex-direction: column;
+  gap: 10px;
+  height: 250px;
+  background-color: $background-character;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.avatar {
+  width: 200px;
+  transform: translateY(-10px);
+  border-radius: inherit;
+  box-shadow: $box-shadow-avatar;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.name {
+  text-align: center;
+}
+
+.dialog-container {
+  @include position-top-left(fixed, 0, 0);
+  @include display-flex(flex, center, center);
+  @include sizes(100vw, 100vh);
+  min-width: $min-width-page;
+  background-color: $background-dialog-container;
+  overflow: auto;
+}
+
+.dialog {
+  position: relative;
+  width: 50%;
+  background-color: $background-character;
+  border-radius: 20px;
+  overflow: hidden;
+  padding-right: 15px;
+}
+
+.button-close {
+  @include position-bottom-right(absolute, 15px, 15px);
+  @extend %button;
+  padding: 5px;
+  border-radius: 6px;
+  font-family: $font-family;
+  font-size: 12px;
+  &:hover {
+    box-shadow: $box-shadow-button-hover;
+  }
+}
+
+.poster {
+  width: 50%;
+  aspect-ratio: 1/1;
+}
+
+.info-container {
+  display: flex;
+  gap: 30px;
+}
+
+.info {
+  display: flex;
+  gap: 30px;
+  padding: 20px 0 10px;
+  box-shadow: $box-shadow-poster;
+}
+
+.data {
+  font-size: 15px;
+}
+
+.data-title {
+  font-weight: 700;
+}
+
+.data-text {
+  margin: 10px 0;
+}
+
+.scroll {
+  overflow: hidden;
+}
+
+.spinner-container {
+  @include position-top-left(fixed, 0, 0);
+  @include display-flex(none, center, center);
+  @include sizes(100vw, calc(100vh - $height-footer));
+  background-color: $background-spinner;
+}
+.spinner-container.show {
+  display: flex;
+}
+
+.spinner {
+  div {
+    position: absolute;
+    @include sizes(30px, 30px);
+    margin: 8px;
+    box-sizing: border-box;
+    border: 4px solid #0697f1;
+    border-radius: 50%;
+    animation: spinner 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #0697f1 transparent transparent transparent;
+    &:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+    &:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+    &:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+  }
+}
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.footer {
+  @include display-flex(flex, center, space-around);
+  @include sizes(100vw, 80px);
+  position: relative;
+}
+
+.pagination {
+  visibility: hidden;
+  @include display-flex(flex, center, center);
+  gap: 10px;
+}
+
+.page-numbers {
+  display: flex;
+}
+
+.page-quantity {
+  width: 20px;
+  text-align: center;
+}
+
+.button {
+  @include display-flex(flex, center, center);
+  @include sizes(40px, 40px);
+  @extend %button;
+  border-radius: 50%;
+  padding: 0;
+  &:hover {
+    box-shadow: $box-shadow-button-hover;
+  }
+}
+.button.arrow {
+  @include sizes(30px, 30px);
+}
+
+.arrow.disable {
+  color: $color-disable;
+  cursor: default;
+  box-shadow: $box-shadow-button-hover;
+}
+
+.icon-pagination {
+  height: 25px;
+}
+
+.logo {
+  @include position-top-left(absolute, 50%, 50%);
+  height: 60px;
+  transform: translate(-50%, -50%);
+}
+
+.anchor {
+  visibility: hidden;
+}
+
+.show-anchor {
+  visibility: visible;
+}
+
+.top {
+  @include position-top-left(absolute, 0, 0);
+}
+
+.icon-arrow {
+  @include sizes(7px, 12px);
+}
+
+.icon-anchor {
+  @include sizes(14px, 8px);
+  animation: anchor 5s linear infinite;
+}
+@keyframes anchor {
+  0%,
+  50%,
+  100% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(2px);
+  }
+  75% {
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 1000px) {
+  .dialog {
+    width: 60%;
+  }
+}
+@media (max-width: 850px) {
+  .dialog {
+    width: 70%;
+  }
+}
+@media (max-width: 750px) {
+  .dialog {
+    width: 80%;
+  }
+}
+@media (max-width: 650px) {
+  .dialog {
+    width: 90%;
+  }
+}
+@media (max-width: 550px) {
+  .dialog {
+    width: 50%;
+    padding-right: 0px;
+  }
+  .info-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .poster {
+    width: 100%;
+  }
+  .info {
+    gap: 20px;
+    padding: 15px 20px 5px;
+    box-shadow: $box-shadow-poster-vertically;
+  }
+}
+@media (max-width: 500px) {
+  .dialog {
+    width: 60%;
+  }
+}
+@media (max-width: 400px) {
+  .dialog {
+    width: 70%;
+  }
+}

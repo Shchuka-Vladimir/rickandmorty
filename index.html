@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rick and Morty</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="main">
+        <div id="top" class="top"></div>
+        <div class="list"></div>
+        <div class="spinner-container">
+          <div class="spinner">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <button class="button" onclick="showPagination()">
+          <img
+            class="icon-pagination"
+            src="./images/pagination.svg"
+            alt="icon pagination"
+          />
+        </button>
+        <img class="logo" src="./images/logo.png" alt="logo Rick and Morty" />
+        <div class="pagination">
+          <button
+            class="button arrow arrow-prev disable"
+            onclick="prevPage(event)"
+          >
+            <svg class="icon-arrow" xmlns="http://www.w3.org/2000/svg">
+              <polyline
+                points="6,0 0,6 6,12"
+                stroke="currentcolor"
+                fill="none"
+                stroke-width="1.5px"
+              />
+            </svg>
+          </button>
+          <div class="page-numbers"></div>
+          <button class="button arrow arrow-next" onclick="nextPage(event)">
+            <svg class="icon-arrow" xmlns="http://www.w3.org/2000/svg">
+              <polyline
+                points="0,0 6,6 0,12"
+                stroke="currentcolor"
+                fill="none"
+                stroke-width="1.5px"
+              />
+            </svg>
+          </button>
+        </div>
+        <a href="#top" class="button anchor">
+          <svg class="icon-anchor" xmlns="http://www.w3.org/2000/svg">
+            <polyline
+              points="0,8 7,1 14,8"
+              stroke="black"
+              fill="none"
+              stroke-width="1.5px"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <script src="./js/script.js"></script>
+    <script src="./js/dialog.js"></script>
+    <script src="./js/pagination.js"></script>
+  </body>
+</html>
