@@ -180,15 +180,12 @@ body.active-pagination .logo {
   }
 }
 .footer {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-around;
   width: 100vw;
   height: 80px;
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  background-color: inherit;
 }
 
 .pagination {

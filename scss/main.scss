@@ -205,10 +205,9 @@ body.active-pagination {
 }
 
 .footer {
+  position: relative;
   @include display-flex(flex, center, space-around);
   @include sizes(100vw, 80px);
-  @include position-bottom-right(fixed, 0, 0);
-  background-color: inherit;
 }
 
 .pagination {
